@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Deck.cs" type="Script" id=1]
+[ext_resource path="res://OYNO_BackFace.png" type="Texture" id=2]
+
+[node name="Deck" type="TextureButton"]
+anchor_right = 0.1
+anchor_bottom = 0.272
+margin_right = -0.400002
+margin_bottom = -0.200012
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Card PNGs/OYNO_BackFace.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Card.cs" type="Script" id=2]
+[ext_resource path="res://Card PNGs/OYNO_FrontFaceBlue0.png" type="Texture" id=3]
+
+[node name="Card" type="TextureButton"]
+margin_right = 139.0
+margin_bottom = 221.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

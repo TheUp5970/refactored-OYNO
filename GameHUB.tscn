@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CardOld.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DeckOld.tscn" type="PackedScene" id=3]
+
+
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.0352941, 0.313726, 0.470588, 1 )
+sky_horizon_color = Color( 0.462745, 0.670588, 0.647059, 1 )
+ground_bottom_color = Color( 0.0784314, 0.192157, 0.309804, 1 )
+ground_horizon_color = Color( 0.313726, 0.407843, 0.462745, 1 )
+sun_latitude = 90.0
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_custom_fov = 70.0
+background_color = Color( 0.0588235, 0.360784, 0.560784, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_sky_contribution = 0.25
+
+[sub_resource type="ConcavePolygonShape" id=6]
+data = PoolVector3Array( -10, 0.25, 10, 10, 0.25, 10, -10, -0.25, 10, 10, 0.25, 10, 10, -0.25, 10, -10, -0.25, 10, 10, 0.25, -10, -10, 0.25, -10, 10, -0.25, -10, -10, 0.25, -10, -10, -0.25, -10, 10, -0.25, -10, 10, 0.25, 10, 10, 0.25, -10, 10, -0.25, 10, 10, 0.25, -10, 10, -0.25, -10, 10, -0.25, 10, -10, 0.25, -10, -10, 0.25, 10, -10, -0.25, -10, -10, 0.25, 10, -10, -0.25, 10, -10, -0.25, -10, 10, 0.25, 10, -10, 0.25, 10, 10, 0.25, -10, -10, 0.25, 10, -10, 0.25, -10, 10, 0.25, -10, -10, -0.25, 10, 10, -0.25, 10, -10, -0.25, -10, 10, -0.25, 10, 10, -0.25, -10, -10, -0.25, -10 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 20, 0.5, 20 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.501961, 0.341176, 0.184314, 1 )
+metallic = 0.23
+roughness = 0.73
+
+[node name="GameHUB" type="WorldEnvironment"]
+environment = SubResource( 2 )
+
+[node name="CameraYourTurn" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 33 )
+
+[node name="CameraOverlay" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.5343, 69.1805 )
+
+[node name="Table" type="StaticBody" parent="."]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -1.125, 0.0917015 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0014544, 0 )
+shape = SubResource( 6 )
+
+[node name="TableMesh" type="MeshInstance" parent="Table"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Deck" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+
+[node name="Hand" parent="." instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 4.875, 21.0917 )
+
+[node name="Card" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 21 )

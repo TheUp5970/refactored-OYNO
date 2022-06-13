@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Pile.cs" type="Script" id=1]
+[ext_resource path="res://OYNO_BackFace.png" type="Texture" id=2]
+
+[node name="Pile" type="TextureRect"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
