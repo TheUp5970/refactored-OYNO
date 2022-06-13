@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using DeckOfCards;
 
-public class Hand : Spatial	//Contains a Players Cards, as well as useful functions.
+public class Hand : Control	//Contains a Players Cards, as well as useful functions.
 {
 	//Attributes//
 	public List<Card> hand = new List<Card>();

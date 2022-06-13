@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using DeckOfCards;
 
-public class Pile : Spatial	//Whre the played Cards go
+public class Pile : Control	//Whre the played Cards go
 {
 	//Attributes//
 	public List<Card> pile;

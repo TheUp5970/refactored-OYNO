@@ -16,12 +16,14 @@ public class GameHandler : Node
 	private int previousPlayerIndex = -1;
 	private bool is_order_reversed = false;
 	
+	
 	private Deck theDeck;
 	private Pile thePile;
 	
 	Player currentPlayer;
 	Player previousPlayer;
 	public int whosTurnIndex = 0;
+	private int i = 0;
 	//----------//
 	
 	//Constructor//
@@ -51,6 +53,14 @@ public class GameHandler : Node
 		if(playerCount <= MAX_PLAYERS)
 		playerCount = numPlayers;
 		players = new List<Player>(playerCount);
+		
+		var deckNode = ((PackedScene)GD.Load("res://Deck.tscn"));
+		var deckNodeIn = deckNode.Instance();
+		GD.Print(deckNodeIn.Name);
+		
+		
+		
+		var pileNode = (PackedScene)GD.Load("res://Pile.tscn");
 		
 		theDeck = new Deck();	//TODO GD.GetNode("Deck");
 		thePile = new Pile();	//TODO GD.GetNode("Pile");
@@ -97,7 +107,8 @@ public class GameHandler : Node
 		}
 	}
 	public void NextPlayer(){
-		GD.Print("Awaiting Input: ");
+		i += 1;
+		if (i % 1000 == 0) GD.Print("Awaiting Input: ");
 		
 		if(!(currentPlayer is CPUplayer)){
 			//Placeholder
@@ -132,6 +143,8 @@ public class GameHandler : Node
 	// Called when the node enters the scene tree for the first time//
 	public override void _Ready()
 	{
+		GameHandler gh = new GameHandler(2);
+		
 		GD.Print("Setting Up Game");
 		GD.Print("...");
 		//TODO: Progress Loading Bar

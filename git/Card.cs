@@ -31,13 +31,16 @@ namespace DeckOfCards{
 		four
 	}
 	
-public class Card : Spatial		//Card Objects Class
+public class Card : Control		//Card Objects Class
 {
 	//Attributes//
 	private COLORS color;	//R, G, B, Y or K(blacK)
 	private VALUES val;	//15 total values, (0-9, R_everse, S_kip, draw T_wo, W_ild, draw F_our)
 	
 	public bool is_special;	//is black or R,S,T
+	
+	[Export]
+	public Texture myTex = (Texture)ResourceLoader.Load("res://Card PNGs/OYNO_FrontFace"+"Blue0"+".png");
 	//----------//
 	
 	//Constructor//
@@ -75,7 +78,13 @@ public class Card : Spatial		//Card Objects Class
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		base._Ready();
 		GD.Print("Hello");
+		//var node = (Node)GetNode("this");
+		
+		
+		var spriteNode = GetNode<TextureButton>("Card");
+		spriteNode.TextureNormal = myTex;
 	}
 	//----------//
 

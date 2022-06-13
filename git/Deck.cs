@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 
 namespace DeckOfCards{
-public class Deck : Spatial
+public class Deck : TextureButton
 {
 	//Attributes//
 	public Card[] containsCards = new Card[108];	//Array of cards

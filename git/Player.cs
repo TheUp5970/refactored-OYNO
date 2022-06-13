@@ -3,7 +3,7 @@ using System;
 
 using DeckOfCards;
 
-public class Player : Spatial	//Contains the useful functions and stats for a Player
+public class Player : Node	//Contains the useful functions and stats for a Player
 {
 	//Attributes//
 	protected string myName;
