@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Kevin-MacLeod_-Itty-Bitty-8-Bit.ogg-4515867e8eab2a808705159d94ed7c17.oggstr"
+
+[deps]
+
+source_file="res://Audio/Kevin-MacLeod_-Itty-Bitty-8-Bit.ogg"
+dest_files=[ "res://.import/Kevin-MacLeod_-Itty-Bitty-8-Bit.ogg-4515867e8eab2a808705159d94ed7c17.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

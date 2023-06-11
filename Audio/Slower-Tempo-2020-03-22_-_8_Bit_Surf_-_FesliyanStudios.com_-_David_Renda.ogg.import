@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Slower-Tempo-2020-03-22_-_8_Bit_Surf_-_FesliyanStudios.com_-_David_Renda.ogg-fee5f393a72f3aaa0250f806105f9129.oggstr"
+
+[deps]
+
+source_file="res://Audio/Slower-Tempo-2020-03-22_-_8_Bit_Surf_-_FesliyanStudios.com_-_David_Renda.ogg"
+dest_files=[ "res://.import/Slower-Tempo-2020-03-22_-_8_Bit_Surf_-_FesliyanStudios.com_-_David_Renda.ogg-fee5f393a72f3aaa0250f806105f9129.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,572 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Card PNGs/OYNO_BackFace.png" type="Texture" id=1]
+[ext_resource path="res://MenuStuff/MainMenuBkgd.material" type="Material" id=2]
+[ext_resource path="res://MenuStuff/MainMenuFrgd.material" type="Material" id=3]
+[ext_resource path="res://MenuStuff/MainMenuFrgd.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Logo128.png" type="Texture" id=5]
+[ext_resource path="res://MenuStuff/QuitGameHov.png" type="Texture" id=6]
+[ext_resource path="res://MenuStuff/NewGameUn.png" type="Texture" id=7]
+[ext_resource path="res://MenuStuff/NewGamePres.png" type="Texture" id=8]
+[ext_resource path="res://MenuStuff/NewGameHov.png" type="Texture" id=9]
+[ext_resource path="res://MenuStuff/OptionsHov.png" type="Texture" id=10]
+[ext_resource path="res://MenuStuff/QuitGamePres.png" type="Texture" id=11]
+[ext_resource path="res://MenuStuff/OptionsUn.png" type="Texture" id=12]
+[ext_resource path="res://MenuStuff/QuitGameUn.png" type="Texture" id=13]
+[ext_resource path="res://MenuStuff/OptionsPres.png" type="Texture" id=14]
+[ext_resource path="res://MenuStuff/AboutPres.png" type="Texture" id=15]
+[ext_resource path="res://MenuStuff/AboutUn.png" type="Texture" id=16]
+[ext_resource path="res://MenuStuff/AboutHov.png" type="Texture" id=17]
+[ext_resource path="res://MenuStuff/musicVal.vs" type="Script" id=18]
+[ext_resource path="res://MenuStuff/BackPres.png" type="Texture" id=19]
+[ext_resource path="res://MenuStuff/BackHov.png" type="Texture" id=20]
+[ext_resource path="res://MenuStuff/BackUn.png" type="Texture" id=21]
+[ext_resource path="res://MenuStuff/AudioStreamPlayer.vs" type="Script" id=22]
+[ext_resource path="res://MenuStuff/MainRect.vs" type="Script" id=23]
+[ext_resource path="res://MenuStuff/OptionsRect.vs" type="Script" id=24]
+[ext_resource path="res://more scripts/sfxVal.vs" type="Script" id=25]
+[ext_resource path="res://MenuStuff/Options.tscn" type="PackedScene" id=26]
+[ext_resource path="res://MenuStuff/MainMenu.gd" type="Script" id=27]
+[ext_resource path="res://Audio/Slower-Tempo-2020-03-22_-_8_Bit_Surf_-_FesliyanStudios.com_-_David_Renda.ogg" type="AudioStream" id=28]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 27 )
+
+[node name="MainMenuContainer" type="PanelContainer" parent="."]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 512, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MainMenuContainer"]
+material = ExtResource( 2 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.024
+margin_right = -0.0800171
+margin_bottom = -8.06403
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/Panel/MarginContainer"]
+margin_right = 1009.0
+margin_bottom = 592.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sprite" type="Sprite" parent="MainMenuContainer/Panel/MarginContainer/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.768627 )
+material = ExtResource( 3 )
+position = Vector2( 635.924, 298.53 )
+rotation = 0.785398
+scale = Vector2( 5.87168, 5.84597 )
+texture = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuContainer/Panel"]
+anchor_right = 1.011
+anchor_bottom = 1.019
+margin_left = -8.0
+margin_top = -3.0
+margin_right = -3.1701
+margin_bottom = -7.95605
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left Cards" type="MarginContainer" parent="MainMenuContainer/Panel/HBoxContainer"]
+margin_left = 148.0
+margin_right = 252.0
+margin_bottom = 608.0
+custom_constants/margin_top = 340
+
+[node name="OYNO_BackFace" type="TextureRect" parent="MainMenuContainer/Panel/HBoxContainer/Left Cards"]
+margin_top = 340.0
+margin_right = 104.0
+margin_bottom = 608.0
+rect_pivot_offset = Vector2( 65, 235 )
+texture = ExtResource( 1 )
+
+[node name="OYNO_BackFace3" type="Sprite" parent="MainMenuContainer/Panel/HBoxContainer/Left Cards/OYNO_BackFace"]
+show_behind_parent = true
+position = Vector2( 87.1398, 92.629 )
+rotation = -0.314159
+texture = ExtResource( 1 )
+
+[node name="OYNO_BackFace2" type="Sprite" parent="MainMenuContainer/Panel/HBoxContainer/Left Cards/OYNO_BackFace"]
+show_behind_parent = true
+position = Vector2( 109.136, 58.631 )
+rotation = -0.15708
+texture = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/Panel/HBoxContainer"]
+margin_left = 256.0
+margin_right = 768.0
+margin_bottom = 608.0
+custom_constants/margin_right = 106
+custom_constants/margin_top = 50
+custom_constants/margin_left = 106
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxtContainer" type="VBoxContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer"]
+margin_left = 106.0
+margin_top = 50.0
+margin_right = 406.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer"]
+margin_right = 300.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/CenterContainer"]
+margin_left = 86.0
+margin_right = 214.0
+margin_bottom = 128.0
+texture = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer"]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+margin_top = 148.0
+margin_right = 300.0
+margin_bottom = 508.0
+rect_min_size = Vector2( 300, 360 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainRect" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 353.0
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect"]
+anchor_right = 1.01
+anchor_bottom = 1.003
+margin_right = 0.0400085
+margin_bottom = -0.0380249
+custom_constants/margin_right = 20
+custom_constants/margin_top = 30
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4Container" type="VBoxContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 268.0
+margin_bottom = 316.0
+size_flags_horizontal = 5
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect1" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_right = 248.0
+margin_bottom = 56.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="TextureButton" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect1"]
+anchor_left = 0.097
+anchor_right = 0.903
+anchor_bottom = 1.0
+margin_left = -0.0559998
+margin_top = 2.0
+margin_right = 0.0559845
+margin_bottom = 2.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_top = 76.0
+margin_right = 248.0
+margin_bottom = 132.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="TextureButton" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect2"]
+anchor_left = 0.097
+anchor_right = 0.907
+anchor_bottom = 1.0
+margin_left = -0.0559998
+margin_top = 1.0
+margin_right = 0.0639801
+margin_bottom = 2.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_top = 152.0
+margin_right = 248.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutButton" type="TextureButton" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect3"]
+anchor_left = 0.097
+anchor_right = 0.919
+anchor_bottom = 0.982
+margin_left = -0.0559998
+margin_top = 5.0
+margin_right = 0.0879974
+margin_bottom = 0.00799561
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_top = 228.0
+margin_right = 248.0
+margin_bottom = 286.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="TextureButton" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect4"]
+anchor_left = 0.097
+anchor_right = 0.911
+anchor_bottom = 1.0
+margin_left = -0.0559998
+margin_top = -1.0
+margin_right = 0.0719757
+margin_bottom = 2.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsRect" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer"]
+visible = false
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 353.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect"]
+anchor_right = 1.01
+anchor_bottom = 1.003
+margin_right = 0.0400085
+margin_bottom = -0.0380249
+custom_constants/margin_right = 20
+custom_constants/margin_top = 30
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4Container" type="VBoxContainer" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 268.0
+margin_bottom = 316.0
+size_flags_horizontal = 5
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect1" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_right = 248.0
+margin_bottom = 56.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect1"]
+anchor_left = 0.304
+anchor_top = 0.262
+anchor_right = 0.687
+anchor_bottom = 0.512
+margin_left = 0.0284729
+margin_top = -0.00691509
+margin_right = 0.0444794
+margin_bottom = -0.00691605
+text = "Music Volume:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicBar" type="HScrollBar" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect1"]
+modulate = Color( 0.654902, 0.152941, 1, 1 )
+anchor_left = 0.097
+anchor_right = 0.903
+anchor_bottom = 1.0
+margin_left = -0.0559998
+margin_top = 29.5905
+margin_right = 0.0559845
+margin_bottom = -6.40948
+step = 5.0
+value = 70.0
+custom_step = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicVal" type="Label" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect1"]
+anchor_left = 0.766
+anchor_top = 0.262
+anchor_right = 0.839
+anchor_bottom = 0.524
+margin_left = 0.0319977
+margin_top = 1.7247
+margin_right = 1.92799
+margin_bottom = 1.0527
+text = "70"
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_top = 76.0
+margin_right = 248.0
+margin_bottom = 132.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2"]
+anchor_left = 0.304
+anchor_top = 0.214
+anchor_right = 0.687
+anchor_bottom = 0.5
+margin_left = 6.31354
+margin_top = 3.49824
+margin_right = 6.32954
+margin_bottom = 1.48224
+text = "SFX Volume:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXBar" type="HScrollBar" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2"]
+modulate = Color( 0.654902, 0.152941, 1, 1 )
+anchor_left = 0.097
+anchor_right = 0.903
+anchor_bottom = 1.0
+margin_left = 0.642365
+margin_top = 29.7093
+margin_right = 0.754349
+margin_bottom = -6.29071
+page = 5.0
+value = 50.0
+custom_step = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfxVal" type="Label" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2"]
+anchor_left = 0.766
+anchor_top = 0.262
+anchor_right = 0.839
+anchor_bottom = 0.524
+margin_left = 0.0319977
+margin_top = -0.648254
+margin_right = 1.92799
+margin_bottom = -1.32025
+text = "50"
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_top = 152.0
+margin_right = 248.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton" type="CheckButton" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect3"]
+modulate = Color( 0.615686, 0, 1, 1 )
+margin_left = 165.0
+margin_top = 7.0
+margin_right = 241.0
+margin_bottom = 47.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect3"]
+anchor_left = 0.304
+anchor_top = 0.214
+anchor_right = 0.687
+anchor_bottom = 0.5
+margin_left = 1.42516
+margin_top = 9.20374
+margin_right = 1.44116
+margin_bottom = 7.18774
+text = "Secrets Mode:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_top = 228.0
+margin_right = 248.0
+margin_bottom = 286.0
+size_flags_vertical = 3
+color = Color( 0.462745, 0.462745, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect4"]
+anchor_left = 0.097
+anchor_right = 0.911
+anchor_bottom = 1.0
+margin_left = -0.0559998
+margin_top = 7.38004
+margin_right = 0.0719757
+margin_bottom = 10.38
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right Cards" type="MarginContainer" parent="MainMenuContainer/Panel/HBoxContainer"]
+margin_left = 772.0
+margin_right = 876.0
+margin_bottom = 608.0
+
+[node name="OYNO_BackFace" type="TextureRect" parent="MainMenuContainer/Panel/HBoxContainer/Right Cards"]
+margin_right = 104.0
+margin_bottom = 608.0
+texture = ExtResource( 1 )
+flip_v = true
+
+[node name="OYNO_BackFace3" type="Sprite" parent="MainMenuContainer/Panel/HBoxContainer/Right Cards/OYNO_BackFace"]
+show_behind_parent = true
+position = Vector2( 613.996, 679.178 )
+rotation = 0.403171
+texture = ExtResource( 1 )
+centered = false
+flip_v = true
+
+[node name="OYNO_BackFace2" type="Sprite" parent="MainMenuContainer/Panel/HBoxContainer/Right Cards/OYNO_BackFace"]
+show_behind_parent = true
+position = Vector2( 10, 26.3384 )
+rotation = 0.16057
+texture = ExtResource( 1 )
+centered = false
+flip_v = true
+
+[node name="VersionLabel" type="Label" parent="MainMenuContainer/Panel"]
+anchor_left = 0.867
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 0.997
+margin_left = 0.329956
+margin_top = 0.0899658
+margin_right = -4.0
+margin_bottom = -0.242004
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "ver. 1.01"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainMenuContainer"]
+stream = ExtResource( 28 )
+volume_db = -10.0
+autoplay = true
+script = ExtResource( 22 )
+
+[node name="Options" parent="MainMenuContainer" instance=ExtResource( 26 )]
+[connection signal="pressed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect1/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect2/OptionsButton" to="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect" method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect2/OptionsButton" to="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect" method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect4/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="value_changed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2/SFXBar" to="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2/sfxVal" method="_on_SFXBar_value_changed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect4/BackButton" to="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect4/BackButton" to="MainMenuContainer/Panel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect" method="_on_BackButton_pressed"]
