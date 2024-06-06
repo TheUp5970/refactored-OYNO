@@ -1,7 +1,10 @@
+#My custom Character Controller Code repurposed for here!
 extends RigidBody
-#-----#DATA###################################
+var custom_cursor = preload("res://cursor48.png")
+
+#-----#DATA#-----#
 #--------------------Exported_Variables--------------------#
-export var mouse_sensitivity : Vector2 = Vector2(1, 1) 
+export var mouse_sensitivity : Vector2 = Vector2(1, 1) * 0.5
 export(float, 0.0, 1.0) var mouse_acceleration : float = 0.5 
 
 export var max_speed = 5.0
@@ -46,9 +49,10 @@ func _physics_process(delta):
 
 #----------On_Ready_Function----------
 func _ready():
+	Input.set_custom_mouse_cursor(custom_cursor)
 	$Camera.fov = default_fov
 	if self.mouse_start_captured:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass
 
 #----------Looping_Process_Function----------
@@ -64,22 +68,39 @@ func _process(_delta : float):
 #----------Orientation_Handler----------
 func handle_orientation(event : InputEventMouseMotion):
 	self.target_yaw_pitch -= event.relative*self.mouse_sensitivity*PI/180.0;
-	self.target_yaw_pitch.x = wrapf(self.target_yaw_pitch.x, -PI, PI);
+	self.target_yaw_pitch.x = wrapf(self.target_yaw_pitch.x, -PI/2.0, PI/2.0);
 	self.target_yaw_pitch.y = clamp(self.target_yaw_pitch.y, -PI/2.0, PI/2.0);
+	
+	if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
+		self.yaw_pitch = Vector2.ZERO
+		self.target_yaw_pitch = Vector2.ZERO
 
 #----------Mouse_Focus_Handler----------
 func handle_focus(event : InputEvent):
-	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
-	elif event.is_action_pressed(self.uncapture_action) and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	elif event.is_action_pressed(self.uncapture_action) or (event is InputEventMouseButton and event.button_index != BUTTON_RIGHT and Input.get_mouse_mode() != Input.MOUSE_MODE_VISIBLE):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 
 #----------Mouse_Orientation_Handler----------
 func _unhandled_input(event : InputEvent):
 	self.handle_focus(event);
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
+		if event is InputEventMouseMotion and Input.is_mouse_button_pressed(BUTTON_RIGHT):
 			handle_orientation(event)
+		elif event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.is_pressed() == false:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+	if event is InputEventMouseButton:
+		if event.is_pressed() and event.button_index == BUTTON_LEFT:
+			var from = $Camera.project_ray_origin(event.position)
+			var to = from + $Camera.project_ray_normal(event.position) * 1000
+			$RayCast.cast_to = to - from
+			$RayCast.force_raycast_update()
+			if $RayCast.is_colliding():
+				var collider = $RayCast.get_collider()
+				if "Card" in collider.get_groups():
+					print("Card clicked: ", collider.name)
 
 #----------Key_Input_Handler----------
 func handle_input():

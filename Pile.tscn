@@ -4,3 +4,8 @@
 
 [node name="Pile" type="Spatial"]
 script = ExtResource( 1 )
+
+[node name="CurrentCardSlot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="OldCards" type="Spatial" parent="."]

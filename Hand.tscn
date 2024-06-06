@@ -1,13 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Hand.cs" type="Script" id=1]
 
-[node name="Hand" type="Control"]
-anchor_right = 0.261
-anchor_bottom = 0.128
-margin_right = -0.264008
-margin_bottom = 0.199997
+[sub_resource type="Curve" id=1]
+min_value = -1.0
+_data = [ Vector2( 0, -1 ), 0.0, 2.0, 0, 1, Vector2( 1, 1 ), 2.0, 0.0, 1, 0 ]
+
+[sub_resource type="Curve" id=2]
+min_value = -0.5
+max_value = 0.0
+_data = [ Vector2( 0, -0.5 ), 0.0, 1.89091, 0, 0, Vector2( 0.494506, -0.0136364 ), 0.0, 0.0, 0, 0, Vector2( 1, -0.5 ), -1.97273, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=3]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, -2.09195, 0, 1, Vector2( 0.478022, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, -1 ), -1.91579, 0.0, 1, 0 ]
+
+[node name="Hand" type="Spatial"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+spread_curve = SubResource( 1 )
+height_curve = SubResource( 2 )
+rotation_curve = SubResource( 3 )

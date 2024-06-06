@@ -2,7 +2,6 @@
 
 [ext_resource path="res://more scripts/Play.gd" type="Script" id=1]
 
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
@@ -20,7 +19,7 @@ mid_height = 0.6
 radial_segments = 16
 
 [node name="Play" type="RigidBody"]
-mode = 2
+mode = 1
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 

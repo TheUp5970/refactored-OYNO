@@ -1,0 +1,12 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "button_push_release"
+length = 1.5
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 3.50723, 2.8, 0, 0, 0, 1, 0.273168, 0.114621, 0.273168, 0.301, 1, 0, 3.27545, 2.8, 0, 0, 0, 1, 0.273168, 0.114621, 0.273168, 1.5, 1, 0, 3.50723, 2.8, 0, 0, 0, 1, 0.273168, 0.114621, 0.273168 )

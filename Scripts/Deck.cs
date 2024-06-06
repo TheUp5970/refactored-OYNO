@@ -1,12 +1,14 @@
 using Godot;
 using System;
-using System.Linq;
+using System.Linq;	//for random generator
 
-namespace DeckOfCards{
-public class Deck : TextureButton
+namespace DeckOfCards
 {
+	
+	public class Deck : Spatial
+	{
 	//Attributes//
-	public Card[] containsCards = new Card[108];	//Array of cards
+	public static Card[] containsCards = new Card[108];	//Array of cards
 	//----------//
 	
 	//CONSTRUCTOR//
@@ -38,7 +40,7 @@ public class Deck : TextureButton
 		}
 		for (int i = containsCards.Length-8; i< containsCards.Length;  i++){	//For Black CARDS
 			
-			containsCards[i] = new Card(COLORS.BLACK, VALUES.wild);	//Makes 8 black cards, init to wild
+			containsCards[i] = new Card(COLORS.Black, VALUES.wild);	//Makes 8 black cards, init to wild
 			containsCards[i].is_special = true;
 			if (i>=containsCards.Length-4) containsCards[i].SetValue(VALUES.four);	//Skips 4 wild, makes 4 four(draw4)
 		}
@@ -53,20 +55,20 @@ public class Deck : TextureButton
 	
 	public Deck(Pile discardPile){	//Secondary Constructor, when Creating Again from Discard Pile
 		Card[] newCards = discardPile.pile.ToArray();
-		Shuffle(newCards);
 		containsCards = newCards;
+		Shuffle();
 	}
 	//-----------//
 	
 	//Functions//
 	Random rn = new Random();
 	
-	public void Shuffle(Card[] deck){	//Shuffles Deck
-		for (int i = deck.Length - 1; i>0; --i){
+	public void Shuffle(){	//Shuffles Deck
+		for (int i = containsCards.Length - 1; i>0; --i){
 			int j = rn.Next(i+1);
-			Card temp = deck[i];
-			deck[i] = deck[j];
-			deck[j] = temp;
+			Card temp = containsCards[i];
+			containsCards[i] = containsCards[j];
+			containsCards[j] = temp;
 		}
 		return;
 	}
@@ -77,9 +79,11 @@ public class Deck : TextureButton
 			givenCards[i] = containsCards[0];
 			containsCards = containsCards.Skip(1).ToArray();	//TODO optimize
 			
+			GD.Print(givenCards[i].ToString());
 			i++;
 		}
 		while(i<numCards);
+		
 		
 		return givenCards;
 	}
@@ -102,8 +106,9 @@ public class Deck : TextureButton
 		Deck myDeck = new Deck();
 		//GD.Print(myDeck.containsCards[45].ToString());
 		//PrintDeck();
-		Shuffle(myDeck.containsCards);
-		myDeck.PrintDeck();
+		//Shuffle(containsCards);
+		//DEBUG
+		//myDeck.PrintDeck();
 	}
 }
 

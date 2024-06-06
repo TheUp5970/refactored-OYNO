@@ -1,11 +1,23 @@
 extends Node
 
 var current_scene = null
+var numPlayers : int = 2
+var isDifficult : int = 0
+var gave_params : bool = false
+
+var signal_target : Node
 
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-
+	
+func set_variables(numPlyrs, isDffclt):
+	self.numPlayers = numPlyrs
+	self.isDifficult = isDffclt
+	self.gave_params = true
+	
+	print("2 Variables set to: ", numPlayers,"P, ", isDifficult, "D")
+	
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
@@ -15,7 +27,7 @@ func goto_scene(path):
 
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
-
+	
 	call_deferred("_deferred_goto_scene", path)
 
 
@@ -28,7 +40,7 @@ func _deferred_goto_scene(path):
 
 	# Instance the new scene.
 	current_scene = s.instance()
-
+	
 	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(current_scene)
 
