@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://MenuStuff/Options.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MenuStuff/MainMenu.gd" type="Script" id=2]
@@ -29,6 +29,9 @@
 [ext_resource path="res://MenuStuff/OptionsRect.vs" type="Script" id=27]
 [ext_resource path="res://MenuStuff/MainRect.vs" type="Script" id=28]
 [ext_resource path="res://MenuStuff/new_environment.tres" type="Environment" id=29]
+[ext_resource path="res://UI_theme.theme" type="Theme" id=30]
+[ext_resource path="res://more scripts/NewGameDialog.gd" type="Script" id=31]
+[ext_resource path="res://MenuStuff/AboutDialog.vs" type="Script" id=32]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource( 2 )
@@ -89,7 +92,7 @@ anchor_bottom = 1.0
 margin_left = 5.0
 margin_top = 2.0
 margin_right = -2.0
-margin_bottom = 24.0
+margin_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -114,6 +117,7 @@ texture = ExtResource( 15 )
 show_behind_parent = true
 position = Vector2( 99.1398, 137.629 )
 rotation = -0.314159
+z_index = 1
 texture = ExtResource( 15 )
 offset = Vector2( 0, -41.592 )
 
@@ -168,12 +172,271 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="NewGameDialog" type="ColorRect" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 353.0
+script = ExtResource( 31 )
+
+[node name="PopupPanel" type="PopupPanel" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog"]
+anchor_left = 0.5
+anchor_top = 0.562
+anchor_right = 0.5
+anchor_bottom = 0.562
+margin_left = -140.0
+margin_top = -155.452
+margin_right = 140.0
+margin_bottom = 101.548
+theme = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 274.0
+margin_bottom = 251.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer"]
+margin_right = 268.0
+margin_bottom = 21.0
+text = "New Game Options:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer"]
+margin_top = 25.0
+margin_right = 268.0
+margin_bottom = 244.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer"]
+margin_left = 128.0
+margin_top = 28.0
+margin_right = 140.0
+margin_bottom = 191.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer3" type="CenterContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 244.0
+
+[node name="CenterContainer4" type="CenterContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 244.0
+margin_bottom = 20.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 244.0
+margin_bottom = 75.0
+
+[node name="Panel" type="Panel" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 238.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 238.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_right = 144.0
+margin_bottom = 21.0
+text = "PLAYERS:            "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 229.0
+margin_bottom = 21.0
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer2" type="PanelContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 95.0
+margin_right = 244.0
+margin_bottom = 130.0
+
+[node name="Panel" type="Panel" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer2"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 238.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer2"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 238.0
+margin_bottom = 28.0
+
+[node name="Label" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
+margin_right = 147.0
+margin_bottom = 21.0
+text = "CPU difficulty    "
+
+[node name="OptionButton" type="OptionButton" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
+margin_left = 151.0
+margin_right = 232.0
+margin_bottom = 21.0
+text = "SELECT"
+align = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 244.0
+margin_bottom = 171.0
+
+[node name="Label2" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 118.0
+margin_right = 126.0
+margin_bottom = 21.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 191.0
+margin_right = 244.0
+margin_bottom = 219.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 116.0
+margin_top = 7.0
+margin_right = 128.0
+margin_bottom = 21.0
+
+[node name="Button" type="Button" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/NewGameDialog/PopupPanel/VBoxContainer/CenterContainer/VBoxContainer/CenterContainer2/PanelContainer"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 55.0
+margin_bottom = 21.0
+text = "PLAY!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutDialog" type="ColorRect" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer"]
+self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 353.0
+
+[node name="PopupPanel" type="PopupPanel" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.562
+anchor_right = 0.5
+anchor_bottom = 0.562
+margin_left = -140.0
+margin_top = -155.452
+margin_right = 140.0
+margin_bottom = 101.548
+theme = ExtResource( 30 )
+script = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -160.0
+margin_right = 138.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer"]
+margin_right = 276.0
+margin_bottom = 37.0
+text = "ABOUT
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer"]
+margin_top = 41.0
+margin_right = 276.0
+margin_bottom = 110.0
+text = "This Project was created basically in 3 days so please be kind in the Grading, considering it was not a group project."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer"]
+margin_top = 114.0
+margin_right = 276.0
+margin_bottom = 311.0
+text = "Controls:
+-Hold RMouse to move camera
+Clickable
+-Deck gives card
+-OYNO declares UNO
+-Big Right Button is Pass
+-Observe the magic that is the console printout!!!
+
+PS Do you like the font? its MarioKart! (OS!)
+"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer"]
+margin_top = 315.0
+margin_right = 276.0
+margin_bottom = 329.0
+
+[node name="Button" type="Button" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer/CenterContainer"]
+margin_left = 120.0
+margin_right = 156.0
+margin_bottom = 14.0
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainRect" type="ColorRect" parent="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer"]
 self_modulate = Color( 0.431373, 0.0901961, 0.847059, 0.662745 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 293.0
 margin_bottom = 353.0
+theme = ExtResource( 30 )
 script = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -572,9 +835,13 @@ script = ExtResource( 24 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 29 )
+[connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer/CenterContainer/Button" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect" method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel/VBoxContainer/CenterContainer/Button" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel" method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect1/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect2/OptionsButton" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect" method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect2/OptionsButton" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect" method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect3/AboutButton" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect" method="_on_AboutButton_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect3/AboutButton" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/AboutDialog/PopupPanel" method="_on_AboutButton_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/MainRect/MarginContainer/4Container/ColorRect4/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="value_changed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2/SFXBar" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect2/sfxVal" method="_on_SFXBar_value_changed"]
 [connection signal="pressed" from="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect/MarginContainer/4Container/ColorRect4/BackButton" to="MainMenuContainer/MainPanel/HBoxContainer/MarginContainer/VBoxtContainer/PanelContainer/OptionsRect" method="_on_BackButton_pressed"]
